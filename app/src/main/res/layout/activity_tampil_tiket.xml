@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".TampilTiketActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#50A4D1"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70sp"
+            android:textSize="20sp"
+            android:text="KEBERANGKATAN"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:src="@drawable/prams"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_hari"
+                android:text="Keberangkatan"
+                android:layout_marginLeft="20dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lvnya"
+            android:divider="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="20dp"
+            tools:listitem="@layout/keretalist"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
