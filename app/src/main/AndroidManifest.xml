@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetailPembayaranActivity"></activity>
+        <activity android:name=".MyTripsActivity"></activity>
+        <activity android:name=".DetailPembayaranActivity" />
         <activity android:name=".PembayaranActivity" />
         <activity android:name=".DataPenumpangActivity" />
         <activity android:name=".ReviewTiketActivity" />

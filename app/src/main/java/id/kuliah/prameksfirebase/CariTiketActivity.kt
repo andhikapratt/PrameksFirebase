@@ -53,5 +53,12 @@ class CariTiketActivity : AppCompatActivity() {
             intent.putExtra("ktp",id_penumpang)
             startActivity(intent)
         }
+
+        bt_mytrips.setOnClickListener {
+            intent = Intent(this, MyTripsActivity::class.java)
+            intent.putExtra("ktp",id_penumpang)
+            startActivity(intent)
+        }
+
     }
 }
