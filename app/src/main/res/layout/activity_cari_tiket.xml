@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,7 +18,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="#fff">
 
             <ImageView
@@ -86,15 +86,14 @@
                 android:id="@+id/bt_mytrips"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:background="@drawable/border_bt"
                 android:text="My Trips"
                 android:textColor="#fff"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintHorizontal_bias="0.503"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/bt_cari"
-                app:layout_constraintVertical_bias="0.104"
                 tools:ignore="MissingConstraints" />
 
             <Button
@@ -130,6 +129,7 @@
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="22dp"
                 tools:layout_editor_absoluteY="95dp" />
+
             <TextView
                 android:id="@+id/tv_hari"
                 android:layout_width="wrap_content"
@@ -139,21 +139,26 @@
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="22dp"
                 tools:layout_editor_absoluteY="95dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="#50A4D1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="0dp">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/prams"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="0dp" />
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#50A4D1"
-        android:layout_marginTop="50dp"
-        tools:ignore="MissingConstraints">
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:src="@drawable/prams"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp" />
-    </LinearLayout>
+
 </LinearLayout>

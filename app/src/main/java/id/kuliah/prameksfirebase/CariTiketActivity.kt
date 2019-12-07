@@ -77,9 +77,9 @@ class CariTiketActivity : AppCompatActivity() {
         R.id.action_profile -> {
             val bundle = intent.extras
             val id_penumpang = bundle?.get("ktp").toString()
-//            intent = Intent(this, Profile::class.java)
-//            intent.putExtra("ktp",id_penumpang)
-//            startActivity(intent)
+            intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("ktp",id_penumpang)
+            startActivity(intent)
             true
         }
         R.id.action_logout -> {

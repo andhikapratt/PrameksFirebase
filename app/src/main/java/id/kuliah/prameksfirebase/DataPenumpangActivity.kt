@@ -21,6 +21,7 @@ class DataPenumpangActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_penumpang)
+        supportActionBar?.title = "Data Penumpang"
 
         akunn = mutableListOf()
         val bundle = intent.extras

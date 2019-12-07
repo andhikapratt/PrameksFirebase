@@ -1,4 +1,5 @@
 package id.kuliah.prameksfirebase
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,11 +20,16 @@ class TampilTiketActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tampil_tiket)
+        supportActionBar?.title = "Tiket"
         keretaList = mutableListOf()
         login()
     }
 //==================================================================================================
     private fun login(){
+        val loading = ProgressDialog(this@TampilTiketActivity)
+        loading.setMessage("Memuat data...")
+        loading.show()
+
         val bundle = intent.extras
         val asl = bundle?.get("asal").toString()
         val tuj = bundle?.get("tuju").toString()
@@ -54,6 +60,7 @@ class TampilTiketActivity : AppCompatActivity() {
             }
             override fun onCancelled(p1: DatabaseError){}
         })
+    loading.dismiss()
     }
 //==================================================================================================
 }

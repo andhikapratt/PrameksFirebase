@@ -18,6 +18,7 @@ class ReviewTiketActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review_tiket)
+    supportActionBar?.title = "Detail Tiket"
         keretaList = mutableListOf()
         tampil()
 

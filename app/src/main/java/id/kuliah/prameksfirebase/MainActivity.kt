@@ -1,5 +1,6 @@
 package id.kuliah.prameksfirebase
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -44,6 +45,10 @@ class MainActivity : AppCompatActivity() {
             intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+    }
+//==================================================================================================
+    override fun onBackPressed() {
+
     }
 //==================================================================================================
     private fun saveHero() {

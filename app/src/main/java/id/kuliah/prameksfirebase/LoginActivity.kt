@@ -26,9 +26,6 @@ class LoginActivity : AppCompatActivity() {
         childList = mutableListOf()
 
         bt_go.setOnClickListener{
-            val loading = ProgressDialog(this@LoginActivity)
-            loading.setMessage("Memuat data...")
-            loading.show()
             login()
         }
 
@@ -60,11 +57,13 @@ class LoginActivity : AppCompatActivity() {
     private fun login(){
         val user = et_user.text.toString().trim()
         val pass = et_pass.text.toString().trim()
+        val loading = ProgressDialog(this@LoginActivity)
 
         if(user.isEmpty()){
             et_user.error = "Masukkan Username!!"
             return
         }
+
         if(pass.isEmpty()){
             et_pass.error = "Masukkan Password!!"
             return
@@ -78,6 +77,8 @@ class LoginActivity : AppCompatActivity() {
         ref_user.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(p1: DataSnapshot){
                 //cek pass
+                loading.setMessage("Memuat data...")
+                loading.show()
                 ref_pass.addValueEventListener(object: ValueEventListener {
                     override fun onDataChange(p0: DataSnapshot){
                         //jika user & pass ditemukan
@@ -88,15 +89,15 @@ class LoginActivity : AppCompatActivity() {
                                 childList.add(hero!!)
                                 val ktpp = hero.ktp
 
-                                val loading = ProgressDialog(this@LoginActivity)
-                                loading.dismiss()
                                 intent = Intent(this@LoginActivity, CariTiketActivity::class.java)
                                 intent.putExtra("ktp",ktpp)
+                                loading.dismiss()
                                 startActivity(intent)
                             }
                         }
                         else{
                             Toast.makeText(this@LoginActivity, "Data Tidak Ditemukan!!", Toast.LENGTH_LONG).show()
+                            loading.dismiss()
                         }
                     }
                     override fun onCancelled(p0: DatabaseError){}
@@ -104,6 +105,8 @@ class LoginActivity : AppCompatActivity() {
             }
             override fun onCancelled(p1: DatabaseError){}
         })
+
+    loading.dismiss()
     }
 //==================================================================================================
 }

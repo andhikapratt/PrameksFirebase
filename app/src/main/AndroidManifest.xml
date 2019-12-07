@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ProfileActivity"></activity>
         <activity android:name=".MyTripsActivity" />
         <activity android:name=".DetailPembayaranActivity" />
         <activity android:name=".PembayaranActivity" />
@@ -20,7 +21,7 @@
         <activity android:name=".TampilTiketActivity" />
         <activity android:name=".CariTiketActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity"/>
+        <activity android:name=".LoginActivity" />
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">

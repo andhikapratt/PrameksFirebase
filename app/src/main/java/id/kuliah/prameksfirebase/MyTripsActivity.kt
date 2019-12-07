@@ -20,6 +20,7 @@ class MyTripsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_trips)
+        supportActionBar?.title = "MyTrips"
         keretaList = mutableListOf()
 
         tampil()

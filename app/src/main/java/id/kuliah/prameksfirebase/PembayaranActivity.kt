@@ -40,6 +40,7 @@ class PembayaranActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pembayaran)
+        supportActionBar?.title = "Pembayaran"
 
         akunn = mutableListOf()
         kereta = mutableListOf()
@@ -95,10 +96,11 @@ class PembayaranActivity : AppCompatActivity() {
                                     val ref = FirebaseDatabase.getInstance().getReference("det_pesan")
                                     val det_pesan = DetBeliChild(ktpp, namaa, namakrtt,idkrtt, asall, tujuann, jambrktt, jamsmpp, hargaa, bank.toString(), kode, hari)
                                     ref.child(kode).setValue(det_pesan).addOnCompleteListener{
-                                        Toast.makeText(this@PembayaranActivity, "Berhasil Memesan Tiket!!", Toast.LENGTH_SHORT).show()
+
                                     }
                                     intent = Intent(this@PembayaranActivity, DetailPembayaranActivity::class.java)
                                     intent.putExtra("ktp", id_penumpang)
+                                    intent.putExtra("kode", kode)
                                     startActivity(intent)
                                 }
                             }

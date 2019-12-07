@@ -11,9 +11,13 @@ class DetailPembayaranActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_pembayaran)
+        supportActionBar?.title = "Selesai"
 
         val bundle = intent.extras
         val id_penumpang = bundle?.get("ktp").toString()
+        val kodenya = bundle?.get("kode").toString()
+
+        textView6.text = kodenya
 
         bt_kembali.setOnClickListener {
             intent = Intent(this, CariTiketActivity::class.java)
@@ -21,5 +25,8 @@ class DetailPembayaranActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+    override fun onBackPressed() {
+
     }
 }
