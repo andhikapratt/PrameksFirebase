@@ -22,7 +22,6 @@ class MyTripsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_my_trips)
         keretaList = mutableListOf()
 
-
         tampil()
     }
 

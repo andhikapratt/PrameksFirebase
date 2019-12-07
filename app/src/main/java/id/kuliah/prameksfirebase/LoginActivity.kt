@@ -1,5 +1,6 @@
 package id.kuliah.prameksfirebase
 
+import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +37,24 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+//==================================================================================================
+    override fun onBackPressed() {
+        val builder = AlertDialog.Builder(this@LoginActivity)
+        builder.setTitle("Keluar")
+        builder.setMessage("Apakah anda yakin?")
+        builder.setPositiveButton("Ya"){dialog, which ->
+            val intent = Intent(Intent.ACTION_MAIN)
+            intent.addCategory(Intent.CATEGORY_HOME)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+        }
+
+        builder.setNegativeButton("Tidak"){dialog,which ->
+
+        }
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 //==================================================================================================
     private fun login(){

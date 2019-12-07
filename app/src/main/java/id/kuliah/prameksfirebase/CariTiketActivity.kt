@@ -1,9 +1,12 @@
 package id.kuliah.prameksfirebase
 
+import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
@@ -59,6 +62,45 @@ class CariTiketActivity : AppCompatActivity() {
             intent.putExtra("ktp",id_penumpang)
             startActivity(intent)
         }
+    }
 
+    override fun onBackPressed() {
+        Toast.makeText(this@CariTiketActivity, "Logout dulu gan", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.account, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_profile -> {
+            val bundle = intent.extras
+            val id_penumpang = bundle?.get("ktp").toString()
+//            intent = Intent(this, Profile::class.java)
+//            intent.putExtra("ktp",id_penumpang)
+//            startActivity(intent)
+            true
+        }
+        R.id.action_logout -> {
+            val builder = AlertDialog.Builder(this@CariTiketActivity)
+            builder.setTitle("Logout")
+            builder.setMessage("Apakah anda yakin?")
+            builder.setPositiveButton("Ya"){dialog, which ->
+                intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+            builder.setNegativeButton("Tidak"){dialog,which ->
+
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
     }
 }

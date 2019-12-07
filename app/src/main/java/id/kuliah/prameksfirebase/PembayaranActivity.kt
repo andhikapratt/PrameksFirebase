@@ -98,6 +98,7 @@ class PembayaranActivity : AppCompatActivity() {
                                         Toast.makeText(this@PembayaranActivity, "Berhasil Memesan Tiket!!", Toast.LENGTH_SHORT).show()
                                     }
                                     intent = Intent(this@PembayaranActivity, DetailPembayaranActivity::class.java)
+                                    intent.putExtra("ktp", id_penumpang)
                                     startActivity(intent)
                                 }
                             }
