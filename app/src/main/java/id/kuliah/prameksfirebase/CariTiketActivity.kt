@@ -13,7 +13,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_cari_tiket.*
 
 class CariTiketActivity : AppCompatActivity() {
-
+//==================================================================================================
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cari_tiket)
@@ -63,16 +63,17 @@ class CariTiketActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
+//==================================================================================================
     override fun onBackPressed() {
         Toast.makeText(this@CariTiketActivity, "Logout dulu gan", Toast.LENGTH_SHORT).show()
     }
-
+//==================================================================================================
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.account, menu)
         return true
     }
+//==================================================================================================
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_profile -> {
             val bundle = intent.extras
@@ -103,4 +104,5 @@ class CariTiketActivity : AppCompatActivity() {
             super.onOptionsItemSelected(item)
         }
     }
+//==================================================================================================
 }

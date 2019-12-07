@@ -9,10 +9,12 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import id.kuliah.prameksfirebase.CariTiketActivity
 import id.kuliah.prameksfirebase.ChildAttribute.DetBeliChild
 import id.kuliah.prameksfirebase.ChildAttribute.KeretaChild
 import id.kuliah.prameksfirebase.MyTripsActivity
@@ -71,6 +73,8 @@ class MyTripsAdapter (
 
     fun klik(detail: DetBeliChild){
         a = detail.kodebayar.toString()
+        val bundle = mCtx.intent.extras
+        val id_penumpang = bundle?.get("ktp").toString()
 
         val ref = FirebaseDatabase.getInstance().reference
         val reff = ref.child("det_pesan").orderByChild("kodebayar").equalTo(a)
@@ -79,6 +83,9 @@ class MyTripsAdapter (
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (p0 in dataSnapshot.children) {
                     p0.ref.removeValue()
+                    mCtx.intent = Intent(mCtx, MyTripsActivity::class.java)
+                    mCtx.intent.putExtra("ktp", id_penumpang)
+                    mCtx.startActivity(mCtx.intent)
                 }
             }
             override fun onCancelled(databaseError: DatabaseError){}

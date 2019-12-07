@@ -5,6 +5,8 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.database.*
@@ -33,6 +35,16 @@ class LoginActivity : AppCompatActivity() {
             intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        show_pass.setOnClickListener {
+            if(show_pass.text.toString().equals("show")){
+                et_pass.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                show_pass.text = "hide"
+            } else{
+                et_pass.transformationMethod = PasswordTransformationMethod.getInstance()
+                show_pass.text = "show"
+            }
         }
     }
 //==================================================================================================
@@ -76,7 +88,6 @@ class LoginActivity : AppCompatActivity() {
         //cek user
         ref_user.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(p1: DataSnapshot){
-                //cek pass
                 loading.setMessage("Memuat data...")
                 loading.show()
                 ref_pass.addValueEventListener(object: ValueEventListener {

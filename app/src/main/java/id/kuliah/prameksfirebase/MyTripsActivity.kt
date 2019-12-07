@@ -1,5 +1,6 @@
 package id.kuliah.prameksfirebase
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -16,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_tampil_tiket.*
 class MyTripsActivity : AppCompatActivity() {
 
     lateinit var keretaList: MutableList<DetBeliChild>
-
+//==================================================================================================
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_trips)
@@ -25,7 +26,17 @@ class MyTripsActivity : AppCompatActivity() {
 
         tampil()
     }
+//==================================================================================================
+    override fun onBackPressed() {
+        val bundle = intent.extras
+        val id_penumpang = bundle?.get("ktp").toString()
 
+        intent = Intent(this, CariTiketActivity::class.java)
+        intent.putExtra("ktp", id_penumpang)
+        startActivity(intent)
+    }
+
+//==================================================================================================
     private fun tampil(){
         val bundle = intent.extras
         val id_penumpang = bundle?.get("ktp").toString()
@@ -51,4 +62,5 @@ class MyTripsActivity : AppCompatActivity() {
             override fun onCancelled(p0: DatabaseError){}
         })
     }
+//==================================================================================================
 }

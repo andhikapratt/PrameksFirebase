@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_profile.*
 class ProfileActivity : AppCompatActivity() {
 
     lateinit var akunn: MutableList<AkunChild>
-
+//==================================================================================================
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -57,7 +57,7 @@ class ProfileActivity : AppCompatActivity() {
             dialog.show()
         }
     }
-
+//==================================================================================================
     private fun tampil(){
         val bundle = intent.extras
         val id_penumpang = bundle?.get("ktp").toString()
@@ -82,4 +82,5 @@ class ProfileActivity : AppCompatActivity() {
             override fun onCancelled(p0: DatabaseError){}
         })
     }
+//==================================================================================================
 }

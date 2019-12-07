@@ -7,7 +7,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_detail_pembayaran.*
 
 class DetailPembayaranActivity : AppCompatActivity() {
-
+//==================================================================================================
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_pembayaran)
@@ -26,7 +26,9 @@ class DetailPembayaranActivity : AppCompatActivity() {
             finish()
         }
     }
+//==================================================================================================
     override fun onBackPressed() {
 
     }
+//==================================================================================================
 }

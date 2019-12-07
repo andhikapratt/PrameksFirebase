@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_review_tiket.txt_harga
 class DataPenumpangActivity : AppCompatActivity() {
 
     lateinit var akunn: MutableList<AkunChild>
-
+//==================================================================================================
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_penumpang)
@@ -39,7 +39,7 @@ class DataPenumpangActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
+//==================================================================================================
     private fun tampil(){
         val bundle = intent.extras
         val id_penumpang = bundle?.get("ktp").toString()
@@ -65,4 +65,5 @@ class DataPenumpangActivity : AppCompatActivity() {
             override fun onCancelled(p0: DatabaseError){}
         })
     }
+//==================================================================================================
 }

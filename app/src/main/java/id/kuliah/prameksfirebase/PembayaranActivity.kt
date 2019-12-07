@@ -36,7 +36,7 @@ class PembayaranActivity : AppCompatActivity() {
 
     //kodebayar
     private val kode = (0..10000000).random().toString()
-
+//==================================================================================================
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pembayaran)
@@ -124,4 +124,5 @@ class PembayaranActivity : AppCompatActivity() {
             dialog.show()
         }
     }
+//==================================================================================================
 }

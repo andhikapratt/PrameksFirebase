@@ -33,24 +33,13 @@
                 android:id="@+id/txt_nmkrt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="28dp"
                 android:text="Profile"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.503"
+                app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="60dp"
-                android:text="No KTP"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_nmkrt" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -112,7 +101,7 @@
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="48dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="40dp"
                 android:editable="false"
                 android:ems="10"
                 android:text="ktp"
@@ -120,6 +109,17 @@
                 app:layout_constraintStart_toEndOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/txt_nmkrt"
                 tools:ignore="Deprecated" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="40dp"
+                android:text="No KTP"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nmkrt" />
 
             <EditText
                 android:id="@+id/et_namaa"
@@ -170,8 +170,8 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
             <Button
                 android:id="@+id/bt_update"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="80dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="60dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"

@@ -78,6 +78,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView10"
                 tools:layout_editor_absoluteX="31dp" />
 
+            <Button
+                android:id="@+id/show_pass"
+                android:text="show"
+                android:textSize="0dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/eye"
+                app:layout_constraintBottom_toBottomOf="@+id/et_pass"
+                app:layout_constraintEnd_toEndOf="@+id/et_pass"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/et_pass"
+                app:layout_constraintTop_toTopOf="@+id/et_pass"
+                app:layout_constraintVertical_bias="0.533" />
+
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"

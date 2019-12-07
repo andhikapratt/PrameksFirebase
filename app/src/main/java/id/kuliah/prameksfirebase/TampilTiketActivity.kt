@@ -22,10 +22,14 @@ class TampilTiketActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tampil_tiket)
         supportActionBar?.title = "Tiket"
         keretaList = mutableListOf()
-        login()
+
+        val bundle = intent.extras
+        val hari = bundle?.get("hari").toString()
+        tv_hari.setText("Keberangkatan : "+hari)
+        tampil()
     }
 //==================================================================================================
-    private fun login(){
+    private fun tampil(){
         val loading = ProgressDialog(this@TampilTiketActivity)
         loading.setMessage("Memuat data...")
         loading.show()
