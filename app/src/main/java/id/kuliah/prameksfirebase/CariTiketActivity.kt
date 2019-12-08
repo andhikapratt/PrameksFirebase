@@ -46,15 +46,22 @@ class CariTiketActivity : AppCompatActivity() {
         }
 
         bt_cari.setOnClickListener{
-            intent = Intent(this, TampilTiketActivity::class.java)
+
             var a = tv_asal.text.toString()
             var b = tv_tuju.text.toString()
             var c = tv_hari.text.toString()
-            intent.putExtra("asal",a)
-            intent.putExtra("tuju",b)
-            intent.putExtra("hari",c)
-            intent.putExtra("ktp",id_penumpang)
-            startActivity(intent)
+
+            if(a == b){
+                Toast.makeText(this@CariTiketActivity, "Asal dan tujuan tidak boleh sama!!", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                intent = Intent(this, TampilTiketActivity::class.java)
+                intent.putExtra("asal",a)
+                intent.putExtra("tuju",b)
+                intent.putExtra("hari",c)
+                intent.putExtra("ktp",id_penumpang)
+                startActivity(intent)
+            }
         }
 
         bt_mytrips.setOnClickListener {

@@ -96,40 +96,59 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-            <EditText
+            <TextView
                 android:id="@+id/et_ktp"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="48dp"
-                android:layout_marginTop="52dp"
+                android:layout_marginTop="60dp"
                 android:ems="10"
+                android:text="textview"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.589"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/txt_nmkrt" />
 
-            <EditText
+            <TextView
                 android:id="@+id/et_nama"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="textPersonName"
+                android:text="textview"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/et_ktp"
                 app:layout_constraintTop_toBottomOf="@+id/et_ktp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/et_notelp"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="textPersonName"
+                android:text="textview"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/et_nama"
                 app:layout_constraintTop_toBottomOf="@+id/et_nama" />
 
-            <EditText
+            <TextView
                 android:id="@+id/et_email"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="textPersonName"
+                android:text="textview"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/et_notelp"
                 app:layout_constraintTop_toBottomOf="@+id/et_notelp" />
 

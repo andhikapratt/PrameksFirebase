@@ -9,8 +9,11 @@ import android.widget.EditText
 import android.widget.ListView
 import android.widget.Toast
 import com.google.firebase.database.*
+import id.kuliah.prameksfirebase.Adapter.TiketAdapter
 import id.kuliah.prameksfirebase.ChildAttribute.AkunChild
+import id.kuliah.prameksfirebase.ChildAttribute.KeretaChild
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_tampil_tiket.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -58,7 +61,6 @@ class MainActivity : AppCompatActivity() {
         val pass = et_pass.text.toString().trim()
         val email = et_email.text.toString().trim()
         val notelp = et_notelp.text.toString().trim()
-        val ref = FirebaseDatabase.getInstance().getReference("akun")
 
         if(ktp.isEmpty()){
             et_ktp.error = "Masukkan Nama!!"
@@ -82,9 +84,25 @@ class MainActivity : AppCompatActivity() {
         }
 
         val akun = AkunChild(ktp, nama, user, pass, email, notelp)
-        ref.child(ktp).setValue(akun).addOnCompleteListener{
-            Toast.makeText(this@MainActivity, "Berhasil Menambah Data", Toast.LENGTH_SHORT).show()
-        }
+
+        val daftar = FirebaseDatabase.getInstance().getReference("akun")
+        val cekktp = FirebaseDatabase.getInstance().getReference("akun").orderByChild("ktp").equalTo(ktp)
+
+        cekktp.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(p0: DataSnapshot){
+                if(p0.exists()){
+//                    Toast.makeText(this@MainActivity, "Data Sudah Ada", Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    daftar.child(ktp).setValue(akun).addOnCompleteListener{
+                        intent = Intent(this@MainActivity, LoginActivity::class.java)
+                        startActivity(intent)
+                    }
+                    Toast.makeText(this@MainActivity, "Berhasil Registrasi", Toast.LENGTH_LONG).show()
+                }
+            }
+            override fun onCancelled(p0: DatabaseError){}
+        })
     }
 //==================================================================================================
 }

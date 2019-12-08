@@ -27,10 +27,9 @@ class ProfileActivity : AppCompatActivity() {
         supportActionBar?.title = "Profile"
         akunn = mutableListOf()
 
-        tampil()
+        update()
 
         bt_update.setOnClickListener {
-
             val builder = AlertDialog.Builder(this@ProfileActivity)
 
             val ktpp = et_ktpp.getText().toString()
@@ -58,7 +57,7 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 //==================================================================================================
-    private fun tampil(){
+    private fun update(){
         val bundle = intent.extras
         val id_penumpang = bundle?.get("ktp").toString()
         val ref = FirebaseDatabase.getInstance().reference

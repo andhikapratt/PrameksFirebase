@@ -106,6 +106,8 @@
                 android:ems="10"
                 android:text="ktp"
                 android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/txt_nmkrt"
                 tools:ignore="Deprecated" />
@@ -128,6 +130,7 @@
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/et_ktpp"
                 app:layout_constraintStart_toStartOf="@+id/et_ktpp"
                 app:layout_constraintTop_toBottomOf="@+id/et_ktpp" />
 
@@ -137,6 +140,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/et_namaa"
                 app:layout_constraintStart_toStartOf="@+id/et_namaa"
                 app:layout_constraintTop_toBottomOf="@+id/et_namaa" />
 
@@ -146,6 +150,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/et_notelpp"
                 app:layout_constraintStart_toStartOf="@+id/et_notelpp"
                 app:layout_constraintTop_toBottomOf="@+id/et_notelpp" />
 
@@ -155,6 +160,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/et_emaill"
                 app:layout_constraintStart_toStartOf="@+id/et_emaill"
                 app:layout_constraintTop_toBottomOf="@+id/et_emaill" />
 
@@ -164,6 +170,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/et_usernamee"
                 app:layout_constraintStart_toStartOf="@+id/et_usernamee"
                 app:layout_constraintTop_toBottomOf="@+id/et_usernamee" />
 
