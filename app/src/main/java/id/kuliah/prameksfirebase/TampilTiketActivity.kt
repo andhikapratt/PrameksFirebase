@@ -14,7 +14,7 @@ import id.kuliah.prameksfirebase.ChildAttribute.KeretaChild
 import kotlinx.android.synthetic.main.activity_tampil_tiket.*
 
 class TampilTiketActivity : AppCompatActivity() {
-    lateinit var keretaList: MutableList<KeretaChild>
+        lateinit var keretaList: MutableList<KeretaChild>
 
 //==================================================================================================
     override fun onCreate(savedInstanceState: Bundle?) {

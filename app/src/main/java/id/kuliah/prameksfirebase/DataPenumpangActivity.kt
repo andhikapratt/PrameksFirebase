@@ -3,6 +3,7 @@ package id.kuliah.prameksfirebase
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcel
 import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -10,6 +11,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import id.kuliah.prameksfirebase.ChildAttribute.AkunChild
 import id.kuliah.prameksfirebase.ChildAttribute.KeretaChild
+import id.kuliah.prameksfirebase.Parcelable.ParceAkun
 import kotlinx.android.synthetic.main.activity_data_penumpang.*
 import kotlinx.android.synthetic.main.activity_review_tiket.*
 import kotlinx.android.synthetic.main.activity_review_tiket.txt_harga
@@ -32,10 +34,18 @@ class DataPenumpangActivity : AppCompatActivity() {
         tampil()
 
         bt_go.setOnClickListener {
-            intent = Intent(this, PembayaranActivity::class.java)
+            val a = et_nama.getText().toString()
+            val b = et_ktp.getText().toString()
+            val c = et_email.getText().toString()
+            val d = et_notelp.getText().toString()
+
+            val dataa = ParceAkun(a,b,c,d)
+
+            intent = Intent(this, PembayaranMidtrans::class.java)
             intent.putExtra("ktp", id_penumpang)
             intent.putExtra("id_kereta", id_kereta)
             intent.putExtra("hari", hari)
+            intent.putExtra("dataa", dataa)
             startActivity(intent)
         }
     }

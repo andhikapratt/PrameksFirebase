@@ -26,15 +26,6 @@ class MyTripsActivity : AppCompatActivity() {
 
         tampil()
     }
-//==================================================================================================
-    override fun onBackPressed() {
-        val bundle = intent.extras
-        val id_penumpang = bundle?.get("ktp").toString()
-
-        intent = Intent(this, CariTiketActivity::class.java)
-        intent.putExtra("ktp", id_penumpang)
-        startActivity(intent)
-    }
 
 //==================================================================================================
     private fun tampil(){

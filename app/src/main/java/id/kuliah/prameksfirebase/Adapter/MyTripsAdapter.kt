@@ -37,7 +37,6 @@ class MyTripsAdapter (
         val jambrkk = view.findViewById<TextView>(R.id.tv_jambrk)
         val jamsmp = view.findViewById<TextView>(R.id.tv_jamsmp)
         val hari = view.findViewById<TextView>(R.id.tv_hari)
-        val kode = view.findViewById<TextView>(R.id.tv_kode)
         val harga = view.findViewById<TextView>(R.id.tv_harga)
         val metode = view.findViewById<TextView>(R.id.tv_metode)
         val butt = view.findViewById<Button>(R.id.but_batal)
@@ -50,45 +49,10 @@ class MyTripsAdapter (
         jambrkk.text = tiket.jambrk
         jamsmp.text = tiket.jamsmp
         hari.text = tiket.hari
-        kode.text = tiket.kodebayar
         harga.text = tiket.harga
         metode.text = tiket.metode
+        butt.text = tiket.kodebayar
 
-        butt.setOnClickListener {
-            val builder = AlertDialog.Builder(mCtx)
-            builder.setTitle("Pembatalan")
-            builder.setMessage("Yakin untuk membatalkan tiket?")
-            builder.setPositiveButton("Ya"){dialog, which ->
-                klik(tiket)
-                Toast.makeText(mCtx, "Tiket Berhasil Dibatalkan", Toast.LENGTH_SHORT).show()
-            }
-            builder.setNegativeButton("Tidak"){dialog,which ->
-
-            }
-            val dialog: AlertDialog = builder.create()
-            dialog.show()
-        }
         return view
-    }
-
-    fun klik(detail: DetBeliChild){
-        a = detail.kodebayar.toString()
-        val bundle = mCtx.intent.extras
-        val id_penumpang = bundle?.get("ktp").toString()
-
-        val ref = FirebaseDatabase.getInstance().reference
-        val reff = ref.child("det_pesan").orderByChild("kodebayar").equalTo(a)
-
-        reff.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                for (p0 in dataSnapshot.children) {
-                    p0.ref.removeValue()
-                    mCtx.intent = Intent(mCtx, MyTripsActivity::class.java)
-                    mCtx.intent.putExtra("ktp", id_penumpang)
-                    mCtx.startActivity(mCtx.intent)
-                }
-            }
-            override fun onCancelled(databaseError: DatabaseError){}
-        })
     }
 }

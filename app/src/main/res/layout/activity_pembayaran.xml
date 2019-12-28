@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PembayaranActivity">
+    tools:context=".PembayaranActivity"
+    android:background="#F8F8F8">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="1sp"
+                android:textSize="0sp"
                 android:textColor="#fff"
                 tools:layout_editor_absoluteX="2dp"
                 tools:layout_editor_absoluteY="6dp" />
@@ -79,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="* Klik Bank diatas untuk memilih"
+                android:text="* Pilih bank untuk pembayaran"
                 app:layout_constraintStart_toStartOf="@+id/sp_bank"
                 app:layout_constraintTop_toBottomOf="@+id/sp_bank" />
 

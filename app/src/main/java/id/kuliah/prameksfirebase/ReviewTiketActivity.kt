@@ -9,7 +9,11 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import id.kuliah.prameksfirebase.ChildAttribute.KeretaChild
+import id.kuliah.prameksfirebase.Parcelable.ParceTiket
 import kotlinx.android.synthetic.main.activity_review_tiket.*
+import kotlinx.android.synthetic.main.activity_review_tiket.txt_asal
+import kotlinx.android.synthetic.main.activity_review_tiket.txt_tujuan
+import kotlinx.android.synthetic.main.keretalist.*
 
 class ReviewTiketActivity : AppCompatActivity() {
 
@@ -18,16 +22,16 @@ class ReviewTiketActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review_tiket)
-    supportActionBar?.title = "Detail Tiket"
+        supportActionBar?.title = "Detail Tiket"
         keretaList = mutableListOf()
         tampil()
 
-        val bundle = intent.extras
-        val id_penumpang = bundle?.get("ktp").toString()
-        val id_kereta = bundle?.get("id_kereta").toString()
-        val hari = bundle?.get("hari").toString()
-
         bt_lanjutt.setOnClickListener{
+            val bundle = intent.extras
+            val id_penumpang = bundle?.get("ktp").toString()
+            val id_kereta = bundle?.get("id_kereta").toString()
+            val hari = bundle?.get("hari").toString()
+
             intent = Intent(this, DataPenumpangActivity::class.java)
             intent.putExtra("ktp", id_penumpang)
             intent.putExtra("id_kereta", id_kereta)
