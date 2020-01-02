@@ -96,7 +96,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:background="#50A4D1"
-                    android:text="Selesai"
+                    android:text="Batal"
                     android:textAlignment="center"
                     android:textColor="#fff"
                     android:textSize="15sp" />

@@ -58,8 +58,9 @@ class PembayaranMidtrans : AppCompatActivity(), TransactionFinishedCallback {
 
         gopayClick.setOnClickListener {
             if(tv_boolean.getText().toString() == "0"){
+
+                //menampilkan midtrans payment
                 initMid()
-                transactionRequester()
 
                 val bundle = intent.extras
                 val id_penumpang = bundle?.get("ktp").toString()
@@ -111,10 +112,15 @@ class PembayaranMidtrans : AppCompatActivity(), TransactionFinishedCallback {
                     }
                     override fun onCancelled(p1: DatabaseError){}
                 })
+
+                //mengirim data ke midtrans
+                transactionRequester()
+
+                //metode gopay
                 MidtransSDK.getInstance().startPaymentUiFlow(this, PaymentMethod.GO_PAY)
             }
             else{
-                Toast.makeText(this,"Anda Sudah Melakukan Pembayaran!!",Toast.LENGTH_SHORT).show()
+
             }
             tv_boolean.setText("1")
         }
@@ -146,11 +152,9 @@ class PembayaranMidtrans : AppCompatActivity(), TransactionFinishedCallback {
         }
     }
 //==================================================================================================
-
     override fun onBackPressed() {
         Toast.makeText(this, "Anda Tidak Bisa Kembali!!", Toast.LENGTH_SHORT).show()
     }
-
 //==================================================================================================
     private fun initMid() {
         SdkUIFlowBuilder.init()
@@ -176,7 +180,6 @@ class PembayaranMidtrans : AppCompatActivity(), TransactionFinishedCallback {
 //==================================================================================================
     override fun onTransactionFinished(transactionResult: TransactionResult) {
         Log.w(TAG, transactionResult.response.statusMessage)
-
     }
 //==================================================================================================
     private fun transactionRequester() {
@@ -203,8 +206,8 @@ class PembayaranMidtrans : AppCompatActivity(), TransactionFinishedCallback {
         userDetail.userAddresses = userAddresses
         LocalDataHandler.saveObject("user_details", userDetail)
 
-        val transactionRequest = TransactionRequest(System.currentTimeMillis().toString() + "", 1.0)
-        val itemDetails2 = ItemDetails("123", 1.0, 1, "Prameks")
+        val transactionRequest = TransactionRequest(System.currentTimeMillis().toString() + "", 8.0)
+        val itemDetails2 = ItemDetails("123", 8.0, 1, "Prameks")
 
 
         val itemDetailsList = ArrayList<ItemDetails>()
@@ -212,10 +215,14 @@ class PembayaranMidtrans : AppCompatActivity(), TransactionFinishedCallback {
 
         transactionRequest.itemDetails = itemDetailsList
         MidtransSDK.getInstance().transactionRequest = transactionRequest
+
+        val bundle = intent.extras
+        val id_penumpang = bundle?.get("ktp").toString()
+        intent = Intent(this, DetailPembayaranActivity::class.java)
+        intent.putExtra("kode",kode)
+        intent.putExtra("ktp",id_penumpang)
+        startActivity(intent)
     }
-//==================================================================================================
-
-
 //==================================================================================================
     companion object {
         private val TAG = "transactionresult"
